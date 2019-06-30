@@ -11,7 +11,7 @@ services:
      user: root
      privileged: true
      environment:
-       - JAVA_OPTS="-Duser.timezone=Asia/Jakarta"
+       - JAVA_OPTS="-Duser.timezone=Europe/Lisbon"
      volumes:
        - /docker/jenkins/jenkins_home:/var/jenkins_home
        - /etc/localtime:/etc/localtime
