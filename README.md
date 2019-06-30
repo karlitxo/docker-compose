@@ -1,4 +1,5 @@
-# Docker Compose
+# Docker Compose recipes
+# forked from dimzrio/docker-compose
 
 <h3> Prometheus Grafana and Alertmanager </h3>
 
@@ -27,7 +28,7 @@ Docker compose script for setup webserver using [Nginx](https://nginx.com) and [
 <h1> Installation</h1>
 
 ~~~~
-$ git clone https://github.com/dimzrio/docker-compose.git
+$ git clone https://github.com/karlitxo/docker-compose.git
 
 $ cd blackbox-exporter/blackboxdata
 
