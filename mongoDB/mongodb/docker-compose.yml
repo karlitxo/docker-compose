@@ -5,7 +5,7 @@ services:
     build:
       context: .
     ports:
-      - "27017:27017"
+      - "${MONGODB_PORT}:27017"
     command: --auth --sslMode requireSSL --sslCAFile /data/ssl/ca.pem --sslPEMKeyFile /data/ssl/mongodb.pem
     volumes:
       - ./db:/data/db
@@ -13,8 +13,8 @@ services:
       - ./script/:/script/
       - ./setup/:/docker-entrypoint-initdb.d/
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=admin123
+      - MONGO_INITDB_ROOT_USERNAME=${ROOT_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${ROOT_PASSWORD}
     env_file:
       - .env
     restart: always

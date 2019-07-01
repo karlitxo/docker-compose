@@ -6,10 +6,7 @@ services:
       context: ./build/
     command: --bind_ip_all --logpath /data/logs/mongod.log --replSet $REPLICASET_NAME
     ports:
-      - "127.0.0.1:30001:27017"
-    # environment:
-    #   - MONGO_INITDB_ROOT_USERNAME=$ROOT_USER
-    #   - MONGO_INITDB_ROOT_PASSWORD=$ROOT_PASSWD
+      - "${primary_IP}:${primary_port}:27017"
     env_file:
       - .env
     volumes:
@@ -21,10 +18,7 @@ services:
       context: ./build/
     command: --bind_ip_all --logpath /data/logs/mongod.log --replSet $REPLICASET_NAME
     ports:
-      - "127.0.0.1:30002:27017"
-    # environment:
-    #   - MONGO_INITDB_ROOT_USERNAME=$ROOT_USER
-    #   - MONGO_INITDB_ROOT_PASSWORD=$ROOT_PASSWD
+      - "${secondary_01_IP}:${secondary_01_port}:27017"
     env_file:
       - .env
     volumes:
@@ -36,10 +30,7 @@ services:
       context: ./build/
     command: --bind_ip_all --logpath /data/logs/mongod.log --replSet $REPLICASET_NAME
     ports:
-      - "127.0.0.1:30003:27017"
-    # environment:
-    #   - MONGO_INITDB_ROOT_USERNAME=$ROOT_USER
-    #   - MONGO_INITDB_ROOT_PASSWORD=$ROOT_PASSWD
+      - "${secondary_02_IP}:${secondary_02_port}:27017"
     env_file:
       - .env
     volumes:
